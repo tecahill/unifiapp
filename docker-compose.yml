@@ -39,17 +39,18 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.unifi_insecure.entrypoints=web"
-      - "traefik.http.routers.unifi_insecure.rule=Host(`unifiapp.teletraan.one`)"
-      - "traefik.http.routers.unifi.entrypoints=web-secure"
-      - "traefik.http.routers.unifi.rule=Host(`unifiapp.teletraan.one`)"
-      - "traefik.http.routers.unifi.tls.certresolver=letsencrypt"
-      - "traefik.http.services.unifi.loadbalancer.server.port=8443"
+      - "traefik.http.routers.unifiapp_insecure.entrypoints=web"
+      - "traefik.http.routers.unifiapp_insecure.rule=Host(`unifiapp.teletraan.one`)"
+      - "traefik.http.routers.unifiapp.entrypoints=web-secure"
+      - "traefik.http.routers.unifiapp.rule=Host(`unifiapp.teletraan.one`)"
+      - "traefik.http.routers.unifiapp.tls.certresolver=letsencrypt"
+      - "traefik.http.services.unifiapp.loadbalancer.server.port=8443"
     networks:
       - traefik-proxy
       - default
 networks:
   traefik-proxy:
     external: true  
+
 
 
