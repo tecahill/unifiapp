@@ -52,4 +52,3 @@ networks:
   traefik-proxy:
     external: true  
 
-      - "traefik.docker.network=traefik-proxy"
