@@ -40,9 +40,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.unifi_insecure.entrypoints=web"
-      - "traefik.http.routers.unifi_insecure.rule=Host(`unifi.teletraan.one`)"
+      - "traefik.http.routers.unifi_insecure.rule=Host(`unifiapp.teletraan.one`)"
       - "traefik.http.routers.unifi.entrypoints=web-secure"
-      - "traefik.http.routers.unifi.rule=Host(`unifi.teletraan.one`)"
+      - "traefik.http.routers.unifi.rule=Host(`unifiapp.teletraan.one`)"
       - "traefik.http.routers.unifi.tls.certresolver=letsencrypt"
       - "traefik.http.services.unifi.loadbalancer.server.port=8443"
     networks:
@@ -51,4 +51,5 @@ services:
 networks:
   traefik-proxy:
     external: true  
+
       - "traefik.docker.network=traefik-proxy"
