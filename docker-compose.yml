@@ -5,7 +5,7 @@ services:
     container_name: unifi-db
     volumes:
       - ./data:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - /tmp/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     restart: unless-stopped
 
   unifi-network-application:
@@ -51,6 +51,7 @@ services:
 networks:
   traefik-proxy:
     external: true  
+
 
 
 
